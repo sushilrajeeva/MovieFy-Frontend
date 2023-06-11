@@ -54,25 +54,16 @@ export class AuthService {
     sessionStorage.clear();
   }
 
-  getAllMovies(): Observable<Movie[]> {
+  getAllMovies(): Observable<Movie[]>{
     const url = 'http://localhost:8082/api/v1.0/getAllMovies';
     const token = sessionStorage.getItem('jwtToken');
-
-    console.log("Jwt token i got is ->", token);
-    
   
-    // Set the Authorization header with the token
-    //const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    //headers.append('Access-Control-Allow-Origin', '*');
-//headers.append('Access-Control-Allow-Credentials', 'true');
-
-  
-    console.log("Final url -> ", url);
-    console.log("Final Headers -> ", headers);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + token
+      })
+    };
   
     return this.http.get<Movie[]>(url);
   }
