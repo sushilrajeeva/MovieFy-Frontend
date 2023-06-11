@@ -1,0 +1,26 @@
+.admin-navbar {
+    background-color: #004d99;
+    overflow: hidden;
+}
+
+.admin-navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.admin-navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+@media screen and (max-width: 600px) {
+    .admin-navbar a:not(:first-child) {display: none;}
+    .admin-navbar a.icon {
+        float: right;
+        display: block;
+    }
+}

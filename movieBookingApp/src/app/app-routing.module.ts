@@ -18,7 +18,7 @@ const routes: Routes = [
     path: "login", component: LoginComponent
   },
   { 
-    path: 'admin-dashboard', component: AdminDashboardComponent 
+    path: 'admin-dashboard', component: AdminDashboardComponent , data: { role: 'Admin' }
   },
   { 
     path: 'user-dashboard', component: UserDashboardComponent 
@@ -28,7 +28,8 @@ const routes: Routes = [
   },
   { 
     path: 'forgot-username', component: ForgotUsernameComponent 
-  }
+  },
+
 ];
 
 

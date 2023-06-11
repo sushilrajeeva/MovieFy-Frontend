@@ -5,8 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MovieComponent } from './movie/movie.component';
-import { TicketComponent } from './ticket/ticket.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
@@ -15,19 +13,23 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotUsernameComponent } from './forgot-username/forgot-username.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieComponent,
-    TicketComponent,
     LoginComponent,
     LogoutComponent,
     RegisterComponent,
     AdminDashboardComponent,
     UserDashboardComponent,
     ForgotPasswordComponent,
-    ForgotUsernameComponent, 
+    ForgotUsernameComponent,
+    NavbarComponent,
+    AdminNavbarComponent,
+    UserNavbarComponent, 
   ],
   imports: [
     BrowserModule,
