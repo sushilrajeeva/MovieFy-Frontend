@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-admin-navbar',
@@ -8,15 +9,17 @@ import { Router } from '@angular/router';
 })
 export class AdminNavbarComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   logout(): void {
-    sessionStorage.clear();
-    console.log("Am i called");
-    
-    this.router.navigate(['/login']);
-
+    this.authService.logout().subscribe(() => {
+        this.router.navigate(['/login']);
+    }, error => {
+        // Handle error here
+        console.error(error);
+    });
 }
+
 
 
 }

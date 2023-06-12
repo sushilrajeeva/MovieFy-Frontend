@@ -6,6 +6,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ForgotUsernameComponent } from './forgot-username/forgot-username.component';
+import { AddMovieComponent } from './add-movie/add-movie.component';
+import { BookTicketComponent } from './book-ticket/book-ticket.component';
 
 const routes: Routes = [
   {
@@ -29,6 +31,15 @@ const routes: Routes = [
   { 
     path: 'forgot-username', component: ForgotUsernameComponent 
   },
+  { 
+    path: 'add-movie', component: AddMovieComponent 
+  },
+  {
+    path: 'book-ticket',
+    component: BookTicketComponent
+  }
+  
+  
 
 ];
 

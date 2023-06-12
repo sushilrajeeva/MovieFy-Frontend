@@ -50,9 +50,18 @@ export class AuthService {
 }
 
 
-  logout(): void {
-    sessionStorage.clear();
-  }
+logout(): Observable<any> {
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
+  const url = `${this.apiUrlMovieApp}/call/consumer/logout`;
+  sessionStorage.clear();
+  return this.http.post(url, {}, {responseType: 'text'});
+
+}
 
   getAllMovies(): Observable<Movie[]>{
     const url = 'http://localhost:8082/api/v1.0/getAllMovies';

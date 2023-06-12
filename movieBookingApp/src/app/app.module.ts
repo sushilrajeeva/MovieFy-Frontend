@@ -19,6 +19,9 @@ import { ForgotUsernameComponent } from './forgot-username/forgot-username.compo
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
+import { FilterPipe } from './pipe/FilterPipe';
+import { AddMovieComponent } from './add-movie/add-movie.component';
+import { BookTicketComponent } from './book-ticket/book-ticket.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +36,14 @@ import { UserNavbarComponent } from './user-navbar/user-navbar.component';
     NavbarComponent,
     AdminNavbarComponent,
     UserNavbarComponent, 
+    FilterPipe, AddMovieComponent, BookTicketComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
   bootstrap: [AppComponent]

@@ -7,6 +7,7 @@ export class Movie {
   seatsAvailable: number;
   bookedSeats: number;
   ticketList: Ticket[];
+  editMode: boolean | undefined;
 
   constructor(
     movieId: number,
@@ -14,7 +15,8 @@ export class Movie {
     theatreName: string,
     seatsAvailable: number,
     bookedSeats: number,
-    ticketList: Ticket[]
+    ticketList: Ticket[],
+    editMode: boolean,
   ) {
     this.movieId = movieId;
     this.movieName = movieName;
@@ -22,5 +24,6 @@ export class Movie {
     this.seatsAvailable = seatsAvailable;
     this.bookedSeats = bookedSeats;
     this.ticketList = ticketList;
+    this.editMode = editMode;
   }
 }
