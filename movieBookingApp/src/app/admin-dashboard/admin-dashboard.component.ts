@@ -49,23 +49,23 @@ export class AdminDashboardComponent implements OnInit {
   deleteMovie(movieName: string, theatreName: string): void {
     const url = `http://localhost:8082/api/v1.0/admin/delete/${movieName}/${theatreName}`;
     const httpOptions = {
-        headers: new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + sessionStorage.getItem('jwtToken')
-        })
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('jwtToken')
+      }),
+      responseType: 'text' as 'json' // here
     };
     this.http.delete(url, httpOptions).subscribe(
-        () => {
-            //this.movies = this.movies.filter(movie => !(movie.movieName === movieName && movie.theatreName === theatreName));
-            console.log("Reloading admin dashboard after delete!!");
-            this.ngOnInit();
-        },
-        (error) => {
-            console.error(error);
-            // Handle error here
-        }
+      () => {
+        console.log("Reloading admin dashboard after delete!!");
+        this.ngOnInit();
+      },
+      (error) => {
+        console.error(error);
+      }
     );
-}
+  }
+  
 
 
 getAbbreviation(movieName: string): string {
