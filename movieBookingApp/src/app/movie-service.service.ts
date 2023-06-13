@@ -29,4 +29,7 @@ export class MovieService {
   getMovieData(): bookmovie {
     return new bookmovie(this.movieId, this.movieName, this.bookedSeats);
   }
+
+  
+
 }
