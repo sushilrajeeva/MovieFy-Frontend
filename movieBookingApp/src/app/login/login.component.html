@@ -29,3 +29,10 @@
         </div>
     </div>
 </div>
+
+<div class="popup" *ngIf="isPopupVisible">
+    <div class="popup-content">
+      <span class="close" (click)="closePopup()">&times;</span>
+      <p [ngClass]="{'error-message': isError}">{{ popupMessage }}</p>
+    </div>
+  </div>

@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  isPopupVisible = false;
+  popupMessage = '';
+  isError = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -74,9 +77,16 @@ export class LoginComponent implements OnInit {
       },
       error => {
         console.error(error);
-        // handle error here
+        this.popupMessage = 'Login ID or password is incorrect.';
+        this.isPopupVisible = true;
+        this.isError = true;
       }
     );
+  }
+
+  closePopup(): void {
+    this.isPopupVisible = false;
+    this.router.navigate(['/login']); // Navigate to the login component
   }
   
 }
