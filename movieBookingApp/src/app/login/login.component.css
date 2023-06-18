@@ -1,53 +1,58 @@
-* {box-sizing: border-box}
-
-/* Add padding to containers */
 .container {
   padding: 16px;
 }
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
+.card {
+  border-radius: 15px;
+  border-left: 5px solid #04AA6D;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
+.card:hover {
+  transform: scale(1.02);
 }
 
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
+form {
+  padding: 10px;
 }
 
-/* Set a style for the submit/register button */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  border-radius: .25rem;
+  border: 1px solid #ced4da;
+  padding: .375rem .75rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
 .loginbtn {
   background-color: #04AA6D;
   color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
   opacity: 0.9;
+  transition: opacity 0.3s ease-in-out;
 }
+
 .loginbtn:hover {
   opacity:1;
 }
 
-/* Add a blue text color to links */
 a {
   color: dodgerblue;
+  transition: color 0.3s ease-in-out;
 }
 
-/* Set a grey background color and center the text of the "sign in" section */
-.signUp {
-  background-color: #f1f1f1;
-  text-align: center;
+a:hover {
+  color: #04AA6D;
 }
