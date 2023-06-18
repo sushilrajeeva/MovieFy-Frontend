@@ -49,6 +49,23 @@ export class AuthService {
     }
 }
 
+isUser(): boolean {
+  let userString = sessionStorage.getItem('user');
+
+  if (userString) {
+    try {
+        let user = JSON.parse(userString);
+        return user && user.userName !== 'admin123';
+    } catch (error) {
+        console.error('Error parsing user data from sessionStorage', error);
+        return false;
+    }
+} else {
+    return false;
+}
+
+}
+
 
 logout(): Observable<any> {
   const httpOptions = {

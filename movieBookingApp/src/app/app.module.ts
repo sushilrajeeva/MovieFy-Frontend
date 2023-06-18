@@ -25,6 +25,10 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
 import { BookTicketComponent } from './book-ticket/book-ticket.component';
 import { UserTicketsComponent } from './user-tickets/user-tickets.component';
 
+import { AdminGuard } from './admin.guard';
+import { UserGuard } from './user.guard';
+import { NotLoggedInGuard } from './not-logged-in-guard.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +52,7 @@ import { UserTicketsComponent } from './user-tickets/user-tickets.component';
     FormsModule,
     MatTableModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },AdminGuard, UserGuard, NotLoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

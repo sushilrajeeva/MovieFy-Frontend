@@ -10,38 +10,44 @@ import { AddMovieComponent } from './add-movie/add-movie.component';
 import { BookTicketComponent } from './book-ticket/book-ticket.component';
 import { UserTicketsComponent } from './user-tickets/user-tickets.component';
 
+import { AdminGuard } from './admin.guard';
+import { UserGuard } from './user.guard';
+import { NotLoggedInGuard } from './not-logged-in-guard.guard';
+
 const routes: Routes = [
   {
     path: '', redirectTo: '/login', pathMatch: 'full' 
   },
   {
-    path: "register", component: RegisterComponent
+    path: "register", component: RegisterComponent, canActivate: [NotLoggedInGuard] 
   },
   {
-    path: "login", component: LoginComponent
+    path: "login", component: LoginComponent, canActivate: [NotLoggedInGuard] 
   },
   { 
-    path: 'admin-dashboard', component: AdminDashboardComponent , data: { role: 'Admin' }
+    path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard], data: { role: 'Admin' }
   },
   { 
-    path: 'user-dashboard', component: UserDashboardComponent 
+    path: 'user-dashboard', component: UserDashboardComponent, canActivate: [UserGuard] 
   },
   { 
-    path: 'forgot-password', component: ForgotPasswordComponent 
+    path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [NotLoggedInGuard]
   },
   { 
-    path: 'forgot-username', component: ForgotUsernameComponent 
+    path: 'forgot-username', component: ForgotUsernameComponent, canActivate: [NotLoggedInGuard]
   },
   { 
-    path: 'add-movie', component: AddMovieComponent 
+    path: 'add-movie', component: AddMovieComponent, canActivate: [AdminGuard]
   },
   {
     path: 'book-ticket',
-    component: BookTicketComponent
+    component: BookTicketComponent,
+    canActivate: [UserGuard] 
   },
   {
     path: 'user-tickets',
-    component: UserTicketsComponent
+    component: UserTicketsComponent,
+    canActivate: [UserGuard] 
   }
   
   
