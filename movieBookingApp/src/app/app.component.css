@@ -1,0 +1,14 @@
+app-navbar,
+app-admin-navbar,
+app-user-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* Ensure the navbar is always on top */
+}
+
+/* Adding top padding to the body content */
+body {
+  padding-top: 60px; /* Change this to the height of your navbar */
+}

@@ -75,3 +75,6 @@ a {
 a:hover {
   color: #014c36;
 }
+.registration-form {
+  padding-top: 70px;  /* adjust this value based on the height of your navbar */
+}
