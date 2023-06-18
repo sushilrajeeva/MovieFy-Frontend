@@ -139,6 +139,17 @@ saveMovie(movie: Movie) {
   movie.editMode = false;
 }
 
+getBorder(seatsAvailable: number): string {
+  if (seatsAvailable <= 10) {
+      return '5px solid red';
+  } else if (seatsAvailable <= 20) {
+      return '5px solid orange';
+  } else {
+      return '5px solid green';
+  }
+}
+
+
   
   
 }

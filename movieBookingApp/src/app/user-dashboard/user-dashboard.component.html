@@ -3,32 +3,19 @@
         <div class="col-md-12">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search for a movie">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
-                        <i class="fa fa-search"></i>
-                    </button>
+                <div class="input-group-append align-items-center">
+                    <span class="input-group-text"><i class="fa fa-search"></i></span>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="d-flex align-items-center justify-content-end mb-3">
-                <div class="mr-2 d-flex align-items-center">
-                    <div style="width: 20px; height: 20px; background-color: darkgreen; border: 1px solid #000; border-radius: 50%;"></div> <small style="padding-left: 5px; padding-right: 5px;" class="ml-2">80+ Seats</small>
-                </div>
-                <div class="mr-2 d-flex align-items-center">
-                    <div style="width: 20px; height: 20px; background-color: lightgreen; border: 1px solid #000; border-radius: 50%;"></div> <small style="padding-left: 5px; padding-right: 5px;" class="ml-2">60-79 Seats</small>
-                </div>
-                <div class="mr-2 d-flex align-items-center">
-                    <div style="width: 20px; height: 20px; background-color: yellow; border: 1px solid #000; border-radius: 50%;"></div> <small style="padding-left: 5px; padding-right: 5px;" class="ml-2">40-59 Seats</small>
-                </div>
-                <div class="mr-2 d-flex align-items-center">
-                    <div style="width: 20px; height: 20px; background-color: orange; border: 1px solid #000; border-radius: 50%;"></div> <small style="padding-left: 5px; padding-right: 5px;" class="ml-2">20-39 Seats</small>
-                </div>
-                <div class="mr-2 d-flex align-items-center">
-                    <div style="width: 20px; height: 20px; background-color: darkred; border: 1px solid #000; border-radius: 50%;"></div> <small style="padding-left: 5px; padding-right: 5px;" class="ml-2">Less than 20 Seats</small>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <div class="legends">
+                        <span class="legend"><i class="fas fa-circle text-success"></i> 80+ Seats</span>
+                        <span class="legend"><i class="fas fa-circle text-success"></i> 60-79 Seats</span>
+                        <span class="legend"><i class="fas fa-circle text-warning"></i> 40-59 Seats</span>
+                        <span class="legend"><i class="fas fa-circle text-warning"></i> 20-39 Seats</span>
+                        <span class="legend"><i class="fas fa-circle text-danger"></i> Less than 20 Seats</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,7 +32,7 @@
                             </div>
                             <div style="padding-left: 15px;">
                                 <h4 class="font-weight-bold m-0">{{ movie.movieName }}</h4>
-                                <p class="text-muted mt-1"> @{{ movie.theatreName }}</p>
+                                <p class="text-muted mt-1">@{{ movie.theatreName }}</p>
                             </div>
                         </div>
                         <p class="text-muted mb-1"> <i class="fa fa-chair"></i> Seats Available: {{ movie.seatsAvailable }}</p>
@@ -53,7 +40,7 @@
                         <button class="btn btn-success card-link" [disabled]="movie.seatsAvailable === 0" (click)="bookTicket(movie.movieId, movie.movieName, movie.bookedSeats)">
                             <span *ngIf="movie.seatsAvailable !== 0">Book Ticket</span>
                             <span *ngIf="movie.seatsAvailable === 0">Sold Out</span>
-                        </button> 
+                        </button>
                         <i style="padding-left: 5px;" *ngIf="movie.seatsAvailable === 0" class="fa fa-info-circle ml-2" data-toggle="tooltip" data-placement="top" title="This {{ movie.movieName }} from theatre {{ movie.theatreName }} is fully booked, hence you can't book any more tickets"></i>
                     </div>
                 </div>
