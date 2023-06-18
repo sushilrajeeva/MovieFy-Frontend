@@ -1,15 +1,21 @@
-<div class="container">
-    <h2>Add Movie</h2>
-    <form [formGroup]="movieForm" (ngSubmit)="submitForm()">
-      <div class="form-group">
-        <label for="movieName">Movie Name:</label>
-        <input type="text" id="movieName" class="form-control" formControlName="movieName">
-      </div>
-      <div class="form-group">
-        <label for="theatreName">Theatre Name:</label>
-        <input type="text" id="theatreName" class="form-control" formControlName="theatreName">
-      </div>
-      <button class="btn btn-primary" type="submit">Add Movie</button>
-    </form>
-  </div>
-  
+<div class="container mt-4">
+    <div class="card shadow add-movie-card">
+        <div class="card-body">
+            <h2 class="card-title text-center">Add Movie</h2>
+            <hr>
+            <form [formGroup]="movieForm" (ngSubmit)="submitForm()">
+                <div class="form-group">
+                    <label for="movieName">Movie Name:</label>
+                    <input type="text" id="movieName" class="form-control" formControlName="movieName" placeholder="Enter Movie Name">
+                </div>
+                <div class="form-group">
+                    <label for="theatreName">Theatre Name:</label>
+                    <input type="text" id="theatreName" class="form-control" formControlName="theatreName" placeholder="Enter Theatre Name">
+                </div>
+                <div class="form-group text-center mt-4">
+                    <button class="btn btn-primary add-movie-btn" type="submit">Add Movie</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
