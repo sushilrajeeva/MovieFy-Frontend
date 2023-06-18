@@ -15,6 +15,10 @@
   </div>
 </form>
 
-<p *ngIf="userName !== ''">{{ userName }}</p>
-
-
+<!-- Popup Dialog -->
+<div class="popup" *ngIf="isPopupVisible">
+  <div class="popup-content">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <p [ngClass]="{'success-message': !isError, 'error-message': isError}">{{ popupMessage }}</p>
+  </div>
+</div>
