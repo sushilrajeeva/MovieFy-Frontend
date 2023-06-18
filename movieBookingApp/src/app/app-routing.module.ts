@@ -8,6 +8,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ForgotUsernameComponent } from './forgot-username/forgot-username.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { BookTicketComponent } from './book-ticket/book-ticket.component';
+import { UserTicketsComponent } from './user-tickets/user-tickets.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'book-ticket',
     component: BookTicketComponent
+  },
+  {
+    path: 'user-tickets',
+    component: UserTicketsComponent
   }
   
   

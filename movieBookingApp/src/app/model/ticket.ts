@@ -5,6 +5,7 @@ export class Ticket {
     totalSeat: number;
     seatsAvailable: number;
     seatsBooked: number;
+    userName: string;
   
     constructor(
       transactionId: number,
@@ -12,7 +13,8 @@ export class Ticket {
       movieName: string,
       totalSeat: number,
       seatsAvailable: number,
-      seatsBooked: number
+      seatsBooked: number,
+      userName: string,
     ) {
       this.transactionId = transactionId;
       this.movie_id_fk = movie_id_fk;
@@ -20,6 +22,7 @@ export class Ticket {
       this.totalSeat = totalSeat;
       this.seatsAvailable = seatsAvailable;
       this.seatsBooked = seatsBooked;
+      this.userName = userName;
     }
   }
   

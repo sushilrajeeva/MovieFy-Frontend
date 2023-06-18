@@ -29,8 +29,15 @@ export class BookTicketComponent {
   
 
   bookSeats() {
-    console.log("Number of seats booked: ", this.numberOfSeats);
-    const url = `http://localhost:8082/api/v1.0/ticket/add/${this.movie.movieId}/${this.numberOfSeats}`;
+    let userItem = sessionStorage.getItem('user');
+
+    if (userItem !== null) {
+      let user = JSON.parse(userItem);
+      console.log("UserName -> ", user.userName);
+      console.log("userPassword -> ", user.userPassword);
+
+      console.log("Number of seats booked: ", this.numberOfSeats);
+    const url = `http://localhost:8082/api/v1.0/ticket/add/${this.movie.movieId}/${this.numberOfSeats}/${JSON.parse(userItem).userName}`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -48,6 +55,13 @@ export class BookTicketComponent {
         // Handle error response here
       }
     );
+
+      
+    } else {
+      console.error("User not found in sessionStorage");
+    }
+
+    
   }
 
 }
