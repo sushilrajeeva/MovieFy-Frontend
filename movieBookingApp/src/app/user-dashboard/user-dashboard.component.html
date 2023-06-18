@@ -14,16 +14,25 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="d-flex align-items-center justify-content-start mb-3">
-                <div class="mr-2" style="width: 20px; height: 20px; background-color: darkgreen; border: 1px solid #000;"></div> <small class="mr-3">80+ Seats</small>
-                <div class="mr-2" style="width: 20px; height: 20px; background-color: lightgreen; border: 1px solid #000;"></div> <small class="mr-3">60-79 Seats</small>
-                <div class="mr-2" style="width: 20px; height: 20px; background-color: yellow; border: 1px solid #000;"></div> <small class="mr-3">40-59 Seats</small>
-                <div class="mr-2" style="width: 20px; height: 20px; background-color: orange; border: 1px solid #000;"></div> <small class="mr-3">20-39 Seats</small>
-                <div class="mr-2" style="width: 20px; height: 20px; background-color: darkred; border: 1px solid #000;"></div> <small class="mr-3">Less than 20 Seats</small>
+            <div class="d-flex align-items-center justify-content-end mb-3">
+                <div class="mr-2 d-flex align-items-center">
+                    <div style="width: 20px; height: 20px; background-color: darkgreen; border: 1px solid #000; border-radius: 50%;"></div> <small style="padding-left: 5px; padding-right: 5px;" class="ml-2">80+ Seats</small>
+                </div>
+                <div class="mr-2 d-flex align-items-center">
+                    <div style="width: 20px; height: 20px; background-color: lightgreen; border: 1px solid #000; border-radius: 50%;"></div> <small style="padding-left: 5px; padding-right: 5px;" class="ml-2">60-79 Seats</small>
+                </div>
+                <div class="mr-2 d-flex align-items-center">
+                    <div style="width: 20px; height: 20px; background-color: yellow; border: 1px solid #000; border-radius: 50%;"></div> <small style="padding-left: 5px; padding-right: 5px;" class="ml-2">40-59 Seats</small>
+                </div>
+                <div class="mr-2 d-flex align-items-center">
+                    <div style="width: 20px; height: 20px; background-color: orange; border: 1px solid #000; border-radius: 50%;"></div> <small style="padding-left: 5px; padding-right: 5px;" class="ml-2">20-39 Seats</small>
+                </div>
+                <div class="mr-2 d-flex align-items-center">
+                    <div style="width: 20px; height: 20px; background-color: darkred; border: 1px solid #000; border-radius: 50%;"></div> <small style="padding-left: 5px; padding-right: 5px;" class="ml-2">Less than 20 Seats</small>
+                </div>
             </div>
         </div>
     </div>
-
 
     <div class="row">
         <div class="col-md-4 mt-4" *ngFor="let movie of movies | filter:searchText">

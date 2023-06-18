@@ -1,0 +1,39 @@
+/* Table Styles */
+.mat-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .header-row {
+    background-color: #f8f9fa; /* light grey */
+  }
+  
+  .header-cell {
+    padding: 16px;
+    font-weight: 600;
+  }
+  
+  .table-row {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .table-row:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+  }
+  
+  .data-cell {
+    padding: 16px;
+  }
+  
+  /* Card Styles */
+  .card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  
+  .card-header {
+    border-radius: 15px 15px 0 0;
+  }
+  
