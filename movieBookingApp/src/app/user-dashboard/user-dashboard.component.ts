@@ -61,6 +61,21 @@ export class UserDashboardComponent implements OnInit {
     this.movieService.setMovieData(movieId, movieName, bookedSeats);
     this.router.navigate(['/book-ticket']);
   }
+
+  getBorder(seats: number): string {
+    if (seats > 80) {
+        return '5px solid darkgreen';
+    } else if (seats > 60) {
+        return '5px solid lightgreen';
+    } else if (seats > 40) {
+        return '5px solid yellow';
+    } else if (seats > 20) {
+        return '5px solid orange';
+    } else {
+        return '5px solid darkred';
+    }
+}
+
   
 
 }

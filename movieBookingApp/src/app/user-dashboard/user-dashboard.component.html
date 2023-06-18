@@ -1,44 +1,53 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search for a movie">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-4" *ngFor="let movie of movies | filter:searchText">
-            <div class="card mt-3">
-                <div class="card-header p-2">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="mr-2">
-                                <div class="avatar-circle">
-                                    <span class="initials">{{ getAbbreviation(movie.movieName) }}</span>
-                                </div>
+        <div class="col-md-12">
+            <div class="d-flex align-items-center justify-content-start mb-3">
+                <div class="mr-2" style="width: 20px; height: 20px; background-color: darkgreen; border: 1px solid #000;"></div> <small class="mr-3">80+ Seats</small>
+                <div class="mr-2" style="width: 20px; height: 20px; background-color: lightgreen; border: 1px solid #000;"></div> <small class="mr-3">60-79 Seats</small>
+                <div class="mr-2" style="width: 20px; height: 20px; background-color: yellow; border: 1px solid #000;"></div> <small class="mr-3">40-59 Seats</small>
+                <div class="mr-2" style="width: 20px; height: 20px; background-color: orange; border: 1px solid #000;"></div> <small class="mr-3">20-39 Seats</small>
+                <div class="mr-2" style="width: 20px; height: 20px; background-color: darkred; border: 1px solid #000;"></div> <small class="mr-3">Less than 20 Seats</small>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4 mt-4" *ngFor="let movie of movies | filter:searchText">
+            <div class="card shadow" [style.border-left]="getBorder(movie.seatsAvailable)">
+                <div class="card-body">
+                    <div class="h-100">
+                        <div class="d-flex justify-content-start align-items-center mb-3">
+                            <div class="avatar-circle mr-4">
+                                <span class="initials">{{ getAbbreviation(movie.movieName) }}</span>
                             </div>
-                            <div class="ml-2">
-                                <div class="h5 m-0">
-                                    <span>{{ movie.movieName }}</span>
-                                </div>
-                                <div class="h7 text-muted">{{ movie.theatreName }}</div>
+                            <div style="padding-left: 15px;">
+                                <h4 class="font-weight-bold m-0">{{ movie.movieName }}</h4>
+                                <p class="text-muted mt-1"> @{{ movie.theatreName }}</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>Seats Available: {{ movie.seatsAvailable }}</div>
-                    <div class="text-muted h7 mb-2"> 
-                        <i class="fa fa-clock-o"></i>Booked Seats: {{ movie.bookedSeats }}
-                    </div>
-                    <div class="text-muted h7 mb-2">
-                        <button class="btn btn-success card-link mt-2" [disabled]="movie.seatsAvailable === 0" (click)="bookTicket(movie.movieId, movie.movieName, movie.bookedSeats)">
+                        <p class="text-muted mb-1"> <i class="fa fa-chair"></i> Seats Available: {{ movie.seatsAvailable }}</p>
+                        <p class="text-muted mb-3"> <i class="fa fa-ticket-alt"></i> Booked Seats: {{ movie.bookedSeats }}</p>
+                        <button class="btn btn-success card-link" [disabled]="movie.seatsAvailable === 0" (click)="bookTicket(movie.movieId, movie.movieName, movie.bookedSeats)">
                             <span *ngIf="movie.seatsAvailable !== 0">Book Ticket</span>
                             <span *ngIf="movie.seatsAvailable === 0">Sold Out</span>
                         </button> 
-                        <i *ngIf="movie.seatsAvailable === 0" class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="This {{ movie.movieName }} from theatre {{ movie.theatreName }} is fully booked, hence you can't book any more tickets"></i>
-
+                        <i style="padding-left: 5px;" *ngIf="movie.seatsAvailable === 0" class="fa fa-info-circle ml-2" data-toggle="tooltip" data-placement="top" title="This {{ movie.movieName }} from theatre {{ movie.theatreName }} is fully booked, hence you can't book any more tickets"></i>
                     </div>
-                </div>                
+                </div>
             </div>
         </div>
     </div>
