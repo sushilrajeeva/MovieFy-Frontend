@@ -1,15 +1,22 @@
 .admin-navbar {
     background-color: #004d99;
+    display: flex; /* added */
+    justify-content: space-between; /* added */
+    align-items: center; /* added */
+    padding: 0 10px; /* added - adjust as needed */
     overflow: hidden;
 }
 
 .admin-navbar a {
-    float: left;
-    display: block;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+}
+
+.admin-navbar img {
+    height: 50px; /* adjust as needed */
+    width: 50px; /* adjust as needed */
 }
 
 .admin-navbar a:hover {

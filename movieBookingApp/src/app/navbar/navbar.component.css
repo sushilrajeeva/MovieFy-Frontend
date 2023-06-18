@@ -1,15 +1,22 @@
 .navbar {
     background-color: #333;
+    display: flex; /* added */
+    justify-content: space-between; /* added */
+    align-items: center; /* added */
+    padding: 0 10px; /* added - adjust as needed */
     overflow: hidden;
 }
 
 .navbar a {
-    float: left;
-    display: block;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+}
+
+.navbar img {
+    height: 50px; /* adjust as needed */
+    width: 50px; /* adjust as needed */
 }
 
 .navbar a:hover {
