@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -9,8 +10,11 @@ import { AuthService } from '../auth.service';
 })
 export class ForgotPasswordComponent implements OnInit {
   forgotPasswordForm!: FormGroup;
+  isPopupVisible = false;
+  popupMessage = '';
+  isError = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.forgotPasswordForm = new FormGroup({
@@ -31,13 +35,27 @@ export class ForgotPasswordComponent implements OnInit {
 
     this.authService.forgotPassword(trimmedValues.secretQuestion, trimmedValues.secretAnswer, trimmedValues.newPassword, trimmedValues.userName).subscribe(
       (response: any) => {
-        console.log(response);
-        // handle your response here
+        if (response === 'ACCEPTED') {
+          this.popupMessage = 'Password Reset Successful';
+        } else {
+          this.popupMessage = 'Password Reset Not Successful';
+          this.isError = true;
+        }
+
+        this.isPopupVisible = true;
       },
       (error: any) => {
-        console.error(error);
-        // handle error here
+        this.popupMessage = 'An error occurred: ' + error.message; // Adjust the error message as needed
+        this.isPopupVisible = true;
+        this.isError = true;
       }
     );
+  }
+
+  closePopup(): void {
+    this.isPopupVisible = false;
+    if (!this.isError) {
+      this.router.navigate(['/login']); // Navigate to the login component
+    }
   }
 }
