@@ -1,22 +1,27 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
         <h2 class="text-center">{{ movie.movieName }}</h2>
         <h5>Booked Seats: {{ movie.bookedSeats }}</h5>
-      </div>
-    </div>
   
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <form>
+        <form (ngSubmit)="bookSeats()">
           <div class="form-group">
             <label for="seatsSelect">Number of Seats:</label>
             <select class="form-control" id="seatsSelect" [(ngModel)]="numberOfSeats" name="seats">
               <option *ngFor="let seat of seatsArray">{{ seat }}</option>
             </select>
           </div>
-          <button type="button" class="btn btn-primary" (click)="bookSeats()">Book Seats</button>
+          <button type="submit" class="btn btn-primary">Book Seats</button>
         </form>
+        <i class="fa fa-info-circle ml-2" data-toggle="tooltip" data-placement="top"
+          title="This {{ movie.movieName }} is fully booked, hence you can't book any more tickets"
+          (click)="showPopup()"></i>
+        <div class="popup" *ngIf="isPopupVisible">
+          <div class="popup-content">
+            <span class="close" (click)="closePopup()">&times;</span>
+            <p class="popup-message">{{ popupMessage }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
