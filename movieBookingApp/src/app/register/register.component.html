@@ -1,38 +1,53 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="container">
-      <h1>Register</h1>
-      <p>Please fill in this form to create an account.</p>
-      <hr>
+<div class="container center">
+    <div class="card">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h2 class="form-title">Register</h2>
+        <p class="form-subtitle">Please fill in this form to create an account.</p>
   
-      <label for="userName"><b>User Name</b></label>
-      <input formControlName="userName" type="text" placeholder="Enter User Name" id="userName" required>
+        <div class="form-group">
+          <label for="userName">User Name</label>
+          <input formControlName="userName" type="text" placeholder="Enter User Name" id="userName" required>
+        </div>
   
-      <label for="fullName"><b>Full Name</b></label>
-      <input formControlName="fullName" type="text" placeholder="Enter Full Name" id="fullName" required>
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input formControlName="fullName" type="text" placeholder="Enter Full Name" id="fullName" required>
+        </div>
   
-      <label for="email"><b>Email</b></label>
-      <input formControlName="email" type="email" placeholder="Enter Email" id="email" required>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input formControlName="email" type="email" placeholder="Enter Email" id="email" required>
+        </div>
   
-      <label for="userPassword"><b>Password</b></label>
-      <input formControlName="userPassword" type="password" placeholder="Enter Password" id="userPassword" required>
+        <div class="form-group">
+          <label for="userPassword">Password</label>
+          <input formControlName="userPassword" type="password" placeholder="Enter Password" id="userPassword" required>
+        </div>
   
-      <label for="secretQuestion"><b>Secret Question</b></label>
-      <select formControlName="secretQuestion" id="secretQuestion" required>
-          <option value="What is your nickname">What is your nickname</option>
-          <option value="What is your favourite athelete name">What is your favourite athelete name</option>
-          <option value="What is your mother's maiden name">What is your mother's maiden name</option>
-          <option value="What is the name of your first school">What is the name of your first school</option>
-          <option value="What is the name of your city">What is the name of your city</option>
-      </select>
+        <div class="form-group">
+          <label for="secretQuestion">Secret Question</label>
+          <select formControlName="secretQuestion" id="secretQuestion" required>
+              <option value="What is your nickname">What is your nickname</option>
+              <option value="What is your favourite athelete name">What is your favourite athelete name</option>
+              <option value="What is your mother's maiden name">What is your mother's maiden name</option>
+              <option value="What is the name of your first school">What is the name of your first school</option>
+              <option value="What is the name of your city">What is the name of your city</option>
+          </select>
+        </div>
   
-      <label for="secretAnswer"><b>Secret Answer</b></label>
-      <input formControlName="secretAnswer" type="text" placeholder="Enter Secret Answer" id="secretAnswer" required>
+        <div class="form-group">
+          <label for="secretAnswer">Secret Answer</label>
+          <input formControlName="secretAnswer" type="text" placeholder="Enter Secret Answer" id="secretAnswer" required>
+        </div>
   
-      <button type="submit" class="registerbtn" [disabled]="!registerForm.valid">Register</button>
+        <div class="form-group">
+          <button type="submit" class="btn" [disabled]="!registerForm.valid">Register</button>
+        </div>
+      </form>
+  
+      <div class="alternative">
+        <p>Already have an account? <a routerLink="/login">Sign in</a>.</p>
+      </div>
     </div>
-  
-    <div class="container signIn">
-      <p>Already have an account? <a routerLink="/login">Sign in</a>.</p>
-    </div>
-  </form>
+  </div>
   
